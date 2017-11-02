@@ -1,10 +1,10 @@
 [
     {
-        "keys": ["ctrl+shift+;"],
+        "keys": ["ctrl+shift+'"],
         "command": "ace_jump_word"
     },
     {
-        "keys": ["ctrl+shift+'"],
+        "keys": ["ctrl+shift+;"],
         "command": "ace_jump_char"
     },
     {
