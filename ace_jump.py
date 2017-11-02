@@ -80,6 +80,9 @@ class AceJumpCommand(sublime_plugin.WindowCommand):
     """Base command class for AceJump plugin"""
 
     def run(self, current_buffer_only = False):
+        global g_is_it_showing
+        g_is_it_showing = True
+
         global ace_jump_active
         ace_jump_active = True
 
@@ -131,8 +134,9 @@ class AceJumpCommand(sublime_plugin.WindowCommand):
 
     def on_input(self, command):
         """Fires the necessary actions for the current input"""
+        length = len(command)
 
-        if len(command) == 1:
+        if length == 1:
             self.char = command
             if self.char == "<" or self.char == ">":
                 # re.escape escapes these 2 characters but it isn't needed for view.find()
@@ -141,10 +145,15 @@ class AceJumpCommand(sublime_plugin.WindowCommand):
                 self.add_labels(self.regex().format(re.escape(self.char)))
             return
 
-        if len(command) == 2:
+        if length == 2:
             self.target = command[1]
 
+        global g_is_it_showing
         self.window.run_command("hide_panel", {"cancel": True})
+
+        if length == 0 and not g_is_it_showing:
+            g_is_it_showing = True
+            self.show_prompt(self.prompt(), self.init_value())
 
     def submit(self):
         """Handles the behavior after closing the prompt"""
@@ -169,6 +178,8 @@ class AceJumpCommand(sublime_plugin.WindowCommand):
 
     def add_labels(self, regex):
         """Adds labels to characters matching the regex"""
+        global g_is_it_showing
+        g_is_it_showing = False
 
         global last_index, hints
 
