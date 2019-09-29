@@ -14,10 +14,23 @@ After selecting a mode, you type in a character (except in line mode, where you 
 
 ### PackageControl
 
-You can install AceJump from [PackageControl](http://wbond.net/sublime_packages/package_control) by following the steps below:
+1. Download & Install `Sublime Text 3` (https://www.sublimetext.com/3)
+1. Go to the menu `Tools -> Install Package Control`, then,
+   wait few seconds until the `Package Control` installation finishes
+1. Go to the menu `Preferences -> Package Control`
+1. Type `Package Control Add Channel` on the opened quick panel and press <kbd>Enter</kbd>
+1. Then, input the following address and press <kbd>Enter</kbd>
+   ```
+   https://raw.githubusercontent.com/evandrocoan/StudioChannel/master/channel.json
+   ```
+1. Now, go again to the menu `Preferences -> Package Control`
+1. This time type `Package Control Install Package` on the opened quick panel and press <kbd>Enter</kbd>
+1. Then, search for `AceJump` and press <kbd>Enter</kbd>
 
-- Open up the command palette and select ```Package Control: Install Package```
-- Wait for the packages index to load and select ```AceJump```
+See also:
+1. [ITE - Integrated Toolset Environment](https://github.com/evandrocoan/ITE)
+1. [Package control docs](https://packagecontrol.io/docs/usage) for details.
+
 
 ### Manual installation
 
@@ -140,7 +153,7 @@ By setting ```jump_behind_last_characters``` to ```true```, AceJump will jump be
 
 ### Known issues
 
-It has been reported that the _Select mode_, _Multi cursors mode_ and _Jump after_ mode might not work using the specified keybinding.  
+It has been reported that the _Select mode_, _Multi cursors mode_ and _Jump after_ mode might not work using the specified keybinding.
 As a workaround for that follow these steps:
 
 - Start a regular search, e.g. word search (default keybinding: Ctrl+Shift+;).
